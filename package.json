@@ -1,65 +1,94 @@
 {
-  "name": "C-CPP-CompilerRun",
-  "displayName": "C/C++ Compiler Run",
-  "description": "",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.101.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AlcidesDev809/C-CPP-CompilerRun"
-  },
-  "categories": [
-    "Other"
-  ],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "c-cpp-compiler-run.runC",
-        "title": "Run C/C++ File",
-        "icon": {
-          "light": "assets/icon_light.svg",
-          "dark": "assets/icon_dark.svg"
-        }
-      }
-    ],
-    "menus": {
-      "commandPalette": [
-        {
-          "command": "c-cpp-compiler-run.runC",
-          "when": "editorLangId == c || editorLangId == cpp",
-          "group": "navigation"
-        }
-      ],
-      "editor/title": [
-        {
-          "command": "c-cpp-compiler-run.runC",
-          "when": "editorLangId == c || editorLangId == cpp",
-          "group": "navigation"
-        }
-      ]
+    "name": "c-cpp-compiler",
+    "displayName": "C/C++ Compiler Run",
+    "description": "",
+    "version": "1.1.2",
+    "engines": {
+        "vscode": "^1.101.0"
     },
-    "keybindings": [
-      {
-        "command": "c-cpp-compiler-run.runC",
-        "key": "f6",
-        "when": "editorLangId == c || editorLangId == cpp"
-      }
-    ]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.101.0",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "20.x",
-    "eslint": "^9.25.1",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2"
-  }
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AlcidesDev809/C-CPP-CompilerRun"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "c-cpp-compiler-run.compileC",
+                "title": "Compile C/C++ Files",
+                "icon": {
+                    "light": "assets/icon_run_light.svg",
+                    "dark": "assets/icon_run_dark.svg"
+                }
+            },
+            {
+                "command": "c-cpp-compiler-run.deletBuild",
+                "title": "Clean Build",
+                "icon": {
+                    "light": "assets/icon_trash_light.svg",
+                    "dark": "assets/icon_trash_dark.svg"
+                }
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "c-cpp-compiler-run.compileC",
+                    "when": "editorLangId == c || editorLangId == cpp",
+                    "group": "navigation"
+                }
+            ],
+            "editor/title": [
+                {
+                    "command": "c-cpp-compiler-run.compileC",
+                    "when": "editorLangId == c || editorLangId == cpp",
+                    "group": "navigation"
+                },
+                {
+                    "command": "c-cpp-compiler-run.deletBuild",
+                    "when": "editorLangId == c || editorLangId == cpp",
+                    "group": "navigation"
+                }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "c-cpp-compiler-run.compileC",
+                "key": "f6",
+                "when": "editorLangId == c || editorLangId == cpp"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "C/C++ Runner Settings",
+            "properties": {
+                "c-cpp-compiler-run.compileCommand": {
+                    "type": "string",
+                    "default": "make",
+                    "description": "Comando para compilar o código."
+                },
+                "c-cpp-compiler-run.deletBuild": {
+                    "type": "string",
+                    "default": "make clean",
+                    "description": "Comando para apagar o build"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.101.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "20.x",
+        "eslint": "^9.25.1",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.5.2"
+    }
 }
