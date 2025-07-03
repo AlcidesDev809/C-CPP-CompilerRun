@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+package-lock.json
+
+# VSCode
+.vscode/
+.vscode-test.mjs
+
+# Build / Output
+*.vsix
+build.bat
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# C/C++ build files
+*.o
+*.obj
+*.exe
+*.out
+
+# Backup and temp
+*.bak
+*.tmp
+*.swp
+
+# Test artifacts
+test-results/
+coverage/
+
+# Ignore build directories
+# build/
